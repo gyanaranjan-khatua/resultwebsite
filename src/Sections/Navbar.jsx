@@ -85,9 +85,13 @@ function Navbar() {
             </Link>
 
             {/* RESULTS DROPDOWN */}
-            <div className="relative">
+            <div
+              className="relative"
+              onMouseEnter={() => setResultsOpen(true)}
+              onMouseLeave={() => setResultsOpen(false)}
+            >
               <button
-                onClick={() => setResultsOpen(!resultsOpen)}
+                onClick={() => setResultsOpen(true)}
                 aria-expanded={resultsOpen}
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition ${
                   isActive("/results") ? "bg-blue-600 hover:bg-blue-500" : "hover:bg-white/10"
@@ -109,7 +113,7 @@ function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-3 w-60 rounded-2xl bg-white p-2 shadow-2xl border border-gray-100"
+                    className="absolute top-full left-0 w-60 rounded-2xl bg-white p-2 shadow-2xl border border-gray-100"
                   >
                     {resultLinks.map((item) => (
                       <Link
